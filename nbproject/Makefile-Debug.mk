@@ -34,7 +34,10 @@ include Makefile
 OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES= \
+	${OBJECTDIR}/astar.o \
+	${OBJECTDIR}/heap.o \
+	${OBJECTDIR}/laby.o
 
 
 # C Compiler Flags
@@ -60,6 +63,21 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/labyrinth.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/labyrinth ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/astar.o: astar.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/astar.o astar.c
+
+${OBJECTDIR}/heap.o: heap.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/heap.o heap.c
+
+${OBJECTDIR}/laby.o: laby.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/laby.o laby.c
 
 # Subprojects
 .build-subprojects:
