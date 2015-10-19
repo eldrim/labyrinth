@@ -37,10 +37,13 @@ int main(int argc, char** argv)
     previous = init_Array(cst);
     startDist = init_Array(cst);
     
+    
     display_Labyrinth (labyrinth, cst);
+    
     printf("------------------------------------------------------------\n");
 
     resolve (openList, closedList, startDist, previous, priority, labyrinth, cst);
+    
     display_Labyrinth (labyrinth, cst);
     
     
